@@ -25,7 +25,7 @@ body{
 }
 
 .title a{
-    font-family: trajan-sans-pro, sans-serif;
+    font-family: futura, sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size: 36px;
@@ -36,12 +36,6 @@ body{
     
 }
 
-
-/* .logo{
-   position: absolute;
-   top: 35px;
-   padding-left: 35px;
-} */
 
 .nav_bar{ 
     margin-top: auto;
@@ -58,18 +52,32 @@ nav a{
     font-weight: bold;
 }
 
+h3 {
+  font-family: 'Merriweather Sans', sans-serif;
+    font-weight: lighter;
+}
+
 nav a:hover{
     color: #E825C1;
 }
 
 
 .work-img img {
-    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    object-fit: contain;}
+    height: 485px;
+    object-fit: cover;
+  }
+
+
+.small-icon{
+margin:0.5em;
+}
+
+  .small-icon img {
+    width:25px;
+  }
 
 
     .container {
@@ -77,4 +85,19 @@ nav a:hover{
    margin-right: auto;
    margin-left: auto;
        margin-top: 2em;
+}
+
+.card {
+   background-color:var(--color-white);
+   padding:1em;
+   margin: 1em;
+   position:relative;
+   overflow:hidden;
+
+}
+
+
+
+   .work-info-title {
+    text-align: center;
 }
