@@ -1,0 +1,265 @@
+/* CSS RESET */
+
+*, *::after, *::before {
+   box-sizing:border-box;
+}
+
+:root {
+   --font-sans:Montserrat, Arial, sans-serif;
+   --font-serif:Cambria, Georgia, serif;
+
+
+   --color-neutral-light:#F5FBFD;
+   --color-neutral-medium:#B3D4D5;
+   --color-neutral-dark:#F8ECE3;
+
+   --color-main-light:#AADCF1;
+   --color-main-medium:#DAA275;
+   --color-main-dark:#419497;
+
+   --color-white:#fff;
+   --color-black:#111;
+
+   --header-height:3rem;
+}
+
+body {
+   margin:0;
+   font-size:100%;
+   font-family: 'Montserrat', sans-serif;
+   /*var(--font-sans*/);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+   font-family:var(--font-sans);
+}
+
+h1 {
+  color: var(--color-main-dark);
+}
+
+a {
+   color:inherit;
+   text-decoration:none;
+   font-weight:bold;
+}
+a:hover {
+   text-decoration: underline;
+   color:var(--color-main-medium) ;
+}
+
+/*.bar-icons a:hover{color:var(--color-main-medium) ;}*/
+
+
+
+
+
+/* Layout Classes */
+.hidden { display:none; }
+
+.display-flex { display:flex; }
+.display-block { display:block; }
+.display-inline-flex { display:inline-flex; }
+.display-inline-block { display:inline-block; }
+
+.flex-stretch { flex:1 1 auto; }
+.flex-none { flex:none; }
+
+.flex-align-center { align-items:center; }
+.flex-justify-center { justify-content:center; }
+.flex-vertical { flex-direction:column; }
+
+
+.margin-auto {
+  margin: auto;
+}
+
+
+
+
+
+
+/* PAGE ELEMENTS */
+[data-role="page"].ui-page-active {
+   display:flex;
+   flex-direction:column;
+}
+[data-role="main"] {
+   flex: 1 1 100%;
+}
+[data-role="footer"]{
+   /*flex: none;
+   height: var(--header-height);
+   line-height: var(--header-height);
+   border-width:0;
+   background-color: var(--color-white);
+   box-shadow:0 0 5px rgba(0,0,0,0.2);
+   position:relative;
+   overflow:hidden;*/
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: var(--header-height);
+    line-height: var(--header-height);
+    border-width: 0;
+    background-color: var(--color-white);
+    box-shadow: 0 0 5px rgb(0 0 0 / 20%);
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    overflow: hidden;
+
+}
+
+
+[data-role="header"] {
+   flex: none;
+   height: var(--header-height);
+   line-height: var(--header-height);
+   border-width:0;
+   background-color: var(--color-white);
+   box-shadow:0 0 5px rgba(0,0,0,0.2);
+   position:relative;
+   overflow:hidden;
+    
+
+}
+
+
+
+.ui-header .ui-title {
+   position:absolute;
+   top:0;
+   left:0;
+   width:100%;
+   /*height:100%;*/
+   text-align:center;
+   margin:0;
+   font-size:1rem;
+   padding:0;
+}
+
+
+
+
+
+
+
+/* FORM ELEMENTS */
+.form-control {
+    margin: 1em 0;
+}
+.ui-mobile .form-label {
+    margin: 1em 0;
+    font-size: 0.7em;
+    color: var(--color-main-dark);
+}
+.form-input {
+    width: 100%;
+    display: inline-block;
+    border: 1px solid var(--color-main-dark);
+    margin: 0;
+    padding: 0.5em 1em;
+    border-radius: 0.3em;
+    outline: 0;
+    font:inherit;
+}
+.form-button {
+    margin: 0;
+    padding: 0.5em 1em;
+    border-radius: 0.3em;
+    border-width:0;
+    background-color:var(--color-main-medium);
+    outline: 0;
+    width: 100%;
+    display: inline-block;
+    font:inherit;
+    text-align:center;
+    cursor:pointer;
+
+}
+/*.form-button:hover {
+   text-decoration:none;
+   background-color:var(--color-neutral-medium);
+}*/
+
+
+/* Image Elements */
+.ui-mobile a img{
+    border-width: 1em;
+    height: 2em;
+    border-radius: 0.7em;
+  }
+
+.ui-link a img {
+  height: 2em;
+}
+
+
+
+  /* Module 4 new added*/
+
+
+  .margin-1em {
+    margin: 1em;
+  }
+
+
+ul  {
+  padding-left: 0;
+}
+
+  li {
+    list-style: none;
+    margin-bottom: 0.5em;
+   
+  }
+
+  .animal-detail {
+    margin: 0;
+    display: block;
+    height: 100%;
+  }
+
+  .animal-img {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    padding-bottom: 100%;
+  }
+
+  .animal-img img {
+        position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+
+
+
+  a.ui-link.animal-detail.display-flex {
+    display: flex;
+    padding-left: 40px;
+  }
+
+  .ui-link .detail-img {
+    border-width: 1em;
+    height: 4em;
+    border-radius: 0.7em;
+  }
+
+  .bottom-line {
+    border-bottom: 1px solid var(--color-main-light);
+    padding-bottom: 0.5em;}
+
+
+
