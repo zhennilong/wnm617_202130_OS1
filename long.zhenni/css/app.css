@@ -261,5 +261,12 @@ ul  {
     border-bottom: 1px solid var(--color-main-light);
     padding-bottom: 0.5em;}
 
+  .description {
+    margin: 1em;
+  }
+
+.top-bar-icons {
+  padding: 0 1em;
+}
 
 

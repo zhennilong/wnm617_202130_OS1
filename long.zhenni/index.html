@@ -13,6 +13,8 @@
 
    <script src="lib/js/jquery-2.2.4.min.js"></script>
 
+    <script src="js/signin.js"></script>
+
    <script src="js/app.js"></script>
 
    <script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
@@ -155,12 +157,24 @@
 
 
    <section data-role="page" id="animal-profile-page">
-      <header data-role="header">
+      <header data-role="header" class="display-flex">
          <h1>Animal Profile</h1>
-         <a href="#" data-rel="back">Back</a>
+         <a class="top-bar-icons" href="#" data-rel="back">Back</a>
       </header>
       <div data-role="main">
-         Animal Profile
+
+         <img src="img/canadian_duck.jpg" alt="">
+         <div class="description">
+            <h3>Animal 1</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet erat dolor. Cras ultricies aliquam mauris vel placerat. Proin bibendum enim blandit gravida finibus. Mauris tempor eget urna in dictum. Proin at nulla ipsum. Nulla facilisi. Cras imperdiet egestas eros ut ullamcorper. Phasellus efficitur urna et metus commodo elementum. Vestibulum luctus maximus nisi, in tempus odio egestas eu. Nam ornare augue id dolor ultricies lobortis. Vivamus efficitur elementum est dignissim dignissim. Duis tortor orci, tincidunt at metus vel, tincidunt auctor velit. Curabitur vestibulum, erat a ultrices malesuada, metus diam maximus metus, a tempus arcu dui eget augue. Morbi eget mi pulvinar, dictum augue ac, ullamcorper massa.</p>
+         </div>
+         <footer data-role="footer">
+         <a class="bar-icons" href="#recent-page">
+
+         </a>
+         <a href="#list-page">Edit</a>
+         
+      </footer>
       </div>
    </section>
 
