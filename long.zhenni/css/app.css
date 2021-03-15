@@ -119,14 +119,33 @@ a:hover {
 }
 
 [data-role="footer"]{
-   /*flex: none;
+   flex: none;
    height: var(--header-height);
    line-height: var(--header-height);
    border-width:0;
    background-color: var(--color-white);
    box-shadow:0 0 5px rgba(0,0,0,0.2);
    position:relative;
-   overflow:hidden;*/
+   overflow:hidden;
+    /*display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: var(--header-height);
+    line-height: var(--header-height);
+    border-width: 0;
+    background-color: var(--color-white);
+    box-shadow: 0 0 5px rgb(0 0 0 / 20%);
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    overflow: hidden;
+*/
+}
+
+
+[data-role="footer-not-main"]{
+  
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -142,6 +161,7 @@ a:hover {
     overflow: hidden;
 
 }
+
 
 
 [data-role="header"] {
@@ -361,7 +381,7 @@ a:hover {
 .floater.bottom { bottom: 0; }
 
 .floater .icon {
-  padding:1em;
+  padding:0.5em 1em;
   display:block;
 }
 
@@ -451,7 +471,7 @@ ul  {
   }
 
 .top-bar-icons {
-  padding: 0 1em;
+  padding: 0.5em 1em;
 }
 
 
@@ -521,7 +541,11 @@ padding:0.5em;
     align-items: center;
     height: 6rem;
     line-height: var(--header-height);
-    background-color: var(--color-neutral-light);
+    box-shadow: 0 0 5px rgb(0 0 0 / 20%);
+}
+
+.padding-1em {
+  padding:1em;
 }
 
 /* remove this later */
