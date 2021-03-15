@@ -23,8 +23,10 @@
 
 
    <section data-role="page" id="signin-page">
-      <div data-role="main" class="display-flex flex-vertical">
-         <div class="flex-stretch"></div>
+      <div data-role="main" class="display-flex flex-vertical signin-page">
+         <div class="flex-stretch ">
+          <!--   <img src="img/signin.png" alt="logo background"> -->
+         </div>
          <div class="flex-none">
             <form class="form" id="signin-form" data-ajax="false" style="padding:1em">
                <div class="form-control">
@@ -45,27 +47,91 @@
 
 
    <section data-role="page" id="recent-page">
-      <div class="margin-1em">
-         <a href="#">
-            <img src="img/icons8-menu-384.png" alt="menu icon">
-         </a>
+     <div data-role="main">
+     <!--  <div class=" map" data-role="none">
+         <img src="img/map.png" alt="map">
       </div>
-      <div class="margin-1em" data-role="main">
-         MAP!
+     -->
+  
+
+         <div>
+            <form class="form">
+               <div class="form-control bottom-box">
+                  <input class="form-input" type="text" id="list-add-name" placeholder="Search birds by the name" data-role="none">
+               </div>
+            </form>
+
+            <button class="float-button">
+              
+                  <a href="#" class="js-list-add-animal"
+                     data-activate="#list-add-modal">&plus;</a>
+               
+            </button>
+            <div class="modal" id="list-add-modal">
+               <div class="modal-back" data-deactivate="#list-add-modal"></div>
+               <form class="modal-popup" data-ajax="false" id="list-add-form">
+                  <div class="modal-head">Add New Bird</div>
+                  <div class="modal-body">
+                     <div class="form-control">
+                        <label for="list-add-name" class="form-label">Name</label>
+                        <input class="form-input" type="text" id="list-add-name" data-role="none">
+                     </div>
+                     <div class="form-control">
+                        <label for="list-add-type" class="form-label">Type</label>
+                        <input class="form-input" type="text" id="list-add-type" data-role="none">
+                     </div>
+                     <div class="form-control">
+                        <label for="list-add-breed" class="form-label">Breed</label>
+                        <input class="form-input" type="text" id="list-add-breed" data-role="none">
+                     </div>
+                  </div>
+                  <div class="modal-foot display-flex">
+                     <div class="flex-stretch"></div>
+                     <div class="flex-none">
+                        <a href="#" data-deactivate="#list-add-modal">Submit</a>
+                     </div>
+                  </div>
+               </form>
+            </div>
+         </div>
       </div>
-      <footer data-role="footer">
+  <footer data-role="footer" data-template="#footer-template"></footer>
+      
+<!--    <section data-role="page" id="recent-page">
+      <footer data-role="footer" >
+         <ul >
+            <li><a href="#" class="js-list-add-animal" data-activate="#list-add-modal">+</a></li>
+            <li class="flex-stretch">
+               <div>
+                  <a class="bar-icons " href="#recent-page" >Home</a>
+                  <a href="#list-page" >List</a>
+                  <a href="#user-profile-page">User</a>
+               </div>
+            </li>
+         </ul>
+      </footer>
+   </section> -->
+
+
+      <!-- <footer data-role="footer">
+         
          <a class="bar-icons" href="#recent-page">Home</a>
          <a href="#list-page">List</a>
-         <a href="#user-profile-page">Profile</a>
-      </footer>
+         <a href="#user-profile-page">User</a>
+      </footer> -->
    </section>
-
 
    <section data-role="page" id="list-page">
       <header data-role="header">
          <h1>Animal Detail</h1>
+         <ul>
+            <li class="flex-stretch"></li>
+            <li><a href="#" class="js-list-add-animal"
+               data-activate="#list-add-modal">&plus;</a></li>
+         </ul>
       </header>
       <div data-role="main">
+         <div class="overscroll">
          <!-- ul>li*10>a[href=#animal-profile-page]>{Animal $} -->
          <ul class="list-page">
             <li>
@@ -129,32 +195,100 @@
                   <img class="detail-img" src="img/canadian_duck.jpg" alt="">
                   <div class="detail-title margin-auto">Animal 10</div>
                  
-               </a>
-            </li>
-         </ul>
+                  </a>
+               </li>
+            </ul>
+         </div>
       </div>
-      <footer data-role="footer">
-         <a href="#recent-page">Recent</a>
+      <footer data-role="footer" data-template="#footer-template"></footer>
+    <!--   <footer data-role="footer">
+         <a href="#recent-page">Home</a>
          <a href="#list-page">List</a>
-         <a href="#user-profile-page">Profile</a>
-      </footer>
+         <a href="#user-profile-page">User</a>
+      </footer> -->
+  
+
+
+      <div class="modal" id="list-add-modal">
+         <div class="modal-back" data-deactivate="#list-add-modal"></div>
+         <form class="modal-popup" data-ajax="false" id="list-add-form">
+            <div class="modal-head">Head</div>
+            <div class="modal-body">
+               <div class="form-control">
+                  <label for="list-add-name" class="form-label">Name</label>
+                  <input class="form-input" type="text" id="list-add-name" data-role="none">
+               </div>
+               <div class="form-control">
+                  <label for="list-add-type" class="form-label">Type</label>
+                  <input class="form-input" type="text" id="list-add-type" data-role="none">
+               </div>
+               <div class="form-control">
+                  <label for="list-add-breed" class="form-label">Breed</label>
+                  <input class="form-input" type="text" id="list-add-breed" data-role="none">
+               </div>
+            </div>
+            <div class="modal-foot display-flex">
+               <div class="flex-stretch"></div>
+               <div class="flex-none">
+                  <a href="#" data-deactivate="#list-add-modal">Submit</a>
+               </div>
+            </div>
+         </form>
+      </div>
+
    </section>
 
+   <!-- USER DATA SECTION -->
 
    <section data-role="page" id="user-profile-page">
-      <div data-role="main">
-         Profile
-         <p>
-            <a href="#signin-page">Sign Out</a>
-         </p>
+      <header data-role="header">
+         <h1>User Profile</h1>
+      </header>
+      <div data-role="main" class="text-center display-flex flex-vertical">
+         
+      <div class="text-center display-flex flex-vertical">
+         <img src="img/canadian_duck.jpg" class="profile-photo">
+         User Name
       </div>
-      <footer data-role="footer">
-         <a href="#recent-page">Recent</a>
-         <a href="#list-page">List</a>
-         <a href="#user-profile-page">Profile</a>
-      </footer>
+
+         
+         <div class="page-button">
+            <a href="#recent-page" class="form-button">Edit Profile</a>
+         </div>
+         <div class="card">
+            <ul>
+               <li>Favorite</li>
+               <li>Bird List</li>
+            </ul>
+         </div>
+         <p class="text-center">
+            <a href="#" class="js-logout">Sign Out</a>
+         </p>
+
+         <div class="floater top right">
+            <a href="#" class="icon" data-activate="#user-settings-modal"><img src="img/icon/shishkabob.svg" alt=""></a>
+         </div>
+
+
+         <div class="modal" id="user-settings-modal">
+            <div class="modal-drawer right">
+               <div class="modal-head display-flex">
+                  <div class="flex-none">Head</div>
+                  <div class="flex-stretch"></div>
+                  <div class="flex-none"><a href="#"data-deactivate="#user-settings-modal">&times;</a></div>
+               </div>
+               <div class="modal-body"><div class="overscroll">
+               </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <footer data-role="footer" data-template="#footer-template"></footer>
    </section>
 
+
+   
+   <!--  ANIMAL DATA SECTION -->
 
    <section data-role="page" id="animal-profile-page">
       <header data-role="header" class="display-flex">
@@ -166,17 +300,62 @@
          <img src="img/canadian_duck.jpg" alt="">
          <div class="description">
             <h3>Animal 1</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet erat dolor. Cras ultricies aliquam mauris vel placerat. Proin bibendum enim blandit gravida finibus. Mauris tempor eget urna in dictum. Proin at nulla ipsum. Nulla facilisi. Cras imperdiet egestas eros ut ullamcorper. Phasellus efficitur urna et metus commodo elementum. Vestibulum luctus maximus nisi, in tempus odio egestas eu. Nam ornare augue id dolor ultricies lobortis. Vivamus efficitur elementum est dignissim dignissim. Duis tortor orci, tincidunt at metus vel, tincidunt auctor velit. Curabitur vestibulum, erat a ultrices malesuada, metus diam maximus metus, a tempus arcu dui eget augue. Morbi eget mi pulvinar, dictum augue ac, ullamcorper massa.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet erat dolor. Cras ultricies aliquam mauris vel placerat.</p>
          </div>
-         <footer data-role="footer">
-         <a class="bar-icons" href="#recent-page">
-
-         </a>
-         <a href="#list-page">Edit</a>
          
+     <footer data-role="footer">
+         <a class="bar-icons" href="#recent-page"><img src="img/heart.svg"></a>
+         <a href="#animal-profile-edit-page" >Edit</a>
+
       </footer>
       </div>
+   
+
    </section>
+
+
+   <section data-role="page" id="animal-profile-edit-page">
+      <div>
+          <form class="modal-popup" data-ajax="false" id="list-add-form">
+            <div class="modal-head">
+             <img src="img/canadian_duck.jpg" alt="">
+          </div>
+            <div class="modal-body">
+               <div class="form-control">
+                  <label for="list-add-name" class="form-label">Name</label>
+                  <input class="form-input" type="text" id="list-add-name" data-role="none">
+               </div>
+               <div class="form-control">
+                  <label for="list-add-type" class="form-label">Type</label>
+                  <input class="form-input" type="text" id="list-add-type" data-role="none">
+               </div>
+               <div class="form-control">
+                  <label for="list-add-breed" class="form-label">Breed</label>
+                  <input class="form-input" type="text" id="list-add-breed" data-role="none">
+               </div>
+            </div>
+            <div class="modal-foot display-flex">
+               <div class="flex-stretch"></div>
+               <div class="flex-none">
+                  <a href="#" data-deactivate="#list-add-modal">Submit</a>
+               </div>
+            </div>
+         </form>        
+      </div>
+      <footer data-role="footer" data-template="#footer-template"></footer>
+   </section>
+
+     <script type="text/template" id="footer-template">
+   <ul>
+      <li><a href="#recent-page">Home</a></li>
+      <li><a href="#list-page">List</a></li>
+      <li><a href="#user-profile-page">User</a></li>
+   </ul>
+   </script>
+
+   <script type="text/template" id="animal-link-template">
+   this is an animal link
+   </script>
 
 </body>
 </html>
