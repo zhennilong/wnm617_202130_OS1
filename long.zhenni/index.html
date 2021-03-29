@@ -46,7 +46,7 @@
                   <input class="form-input" type="password" id="signin-password" data-role="none">
                </div>
                <div class="form-control">
-                  <input type="submit" href="#recent-page" class="form-button" value="Sign In" data-role="none">
+                  <input type="submit"  class="form-button" value="Sign In" data-role="none">
                </div>
                
             </form>
@@ -111,11 +111,11 @@
    <section data-role="page" id="list-page">
       <header data-role="header">
          <h1>Animal Detail</h1>
-         <ul>
+         <!-- <ul>
             <li class="flex-stretch"></li>
             <li><a href="#" class="js-list-add-animal"
                data-activate="#list-add-modal">&plus;</a></li>
-         </ul>
+         </ul> -->
       </header>
       <div data-role="main">
          <div class="overscroll">
@@ -229,7 +229,7 @@
   
 
 
-      <div class="modal" id="list-add-modal">
+      <!-- <div class="modal" id="list-add-modal">
          <div class="modal-back" data-deactivate="#list-add-modal"></div>
          <form class="modal-popup" data-ajax="false" id="list-add-form">
             <div class="modal-head">Head</div>
@@ -248,13 +248,13 @@
                </div>
             </div>
             <div class="modal-foot display-flex">
-              <!--  <div class="flex-stretch"></div> -->
+             
                <div class="flex-none">
                   <a href="#" data-deactivate="#list-add-modal">Submit</a>
                </div>
             </div>
          </form>
-      </div>
+      </div> -->
 
    </section>
 
@@ -340,7 +340,7 @@
                 <img class="animal-profile-img" src="img/canadian_duck.jpg" alt="">
              </div>
              <div class="form-frame">
-                <form  data-ajax="false" id="list-add-form">
+                <form  data-ajax="false" id="profile-edit-form">
                   
                   <div >
                      <div class="form-control">
@@ -357,7 +357,7 @@
                      </div>
                   </div>
                    <div class="form-control">
-                     <input type="submit" href="#recent-page" class="form-button" value="Save" data-role="none">
+                     <input type="submit" href="#user-profile-page" class="form-button" value="Save" data-role="none">
                    </div>
                </form>
             </div> 
@@ -416,24 +416,24 @@
                 <img class="animal-profile-img" src="img/canadian_duck.jpg" alt="">
              </div>
              <div class="form-frame">
-                <form  data-ajax="false" id="list-add-form">
+                <form  data-ajax="false" id="animal-edit-form">
                   
                   <div >
                      <div class="form-control">
-                        <label for="edit-add-name" class="form-label">Name</label>
-                        <input class="form-input" type="text" id="edit-add-name" data-role="none">
+                        <label for="animal-edit-add-name" class="form-label">Name</label>
+                        <input class="form-input" type="text" id="animal-edit-add-name" data-role="none">
                      </div>
                      <div class="form-control">
-                        <label for="edit-add-type" class="form-label">Type</label>
-                        <input class="form-input" type="text" id="edit-add-type" data-role="none">
+                        <label for="animal-edit-add-type" class="form-label">Type</label>
+                        <input class="form-input" type="text" id="animal-edit-add-type" data-role="none">
                      </div>
                      <div class="form-control">
-                        <label for="edit-add-breed" class="form-label">Breed</label>
-                        <input class="form-input" type="text" id="edit-add-breed" data-role="none">
+                        <label for="animal-edit-add-breed" class="form-label">Breed</label>
+                        <input class="form-input" type="text" id="animal-edit-add-breed" data-role="none">
                      </div>
                   </div>
                    <div class="form-control">
-                     <input type="submit" href="#recent-page" class="form-button" value="Save" data-role="none">
+                     <input type="submit" href="#animal-profile-page" class="form-button" value="Save" data-role="none">
                    </div>
                </form>
             </div> 
