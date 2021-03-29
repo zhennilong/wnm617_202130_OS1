@@ -371,6 +371,22 @@ a:hover {
 }
 
 
+.title-icons .title,
+.title-icons .icon {
+  display:block;
+}
+.title-icons .icon {
+  line-height:calc(var(--header-height)*(2/3));
+  font-size:1.5em;
+}
+.title-icons .title {
+  line-height:calc(var(--header-height)*(1/3));
+  font-size:0.7em;
+}
+
+
+
+
 
 
 /* FLOATERS */
@@ -494,14 +510,31 @@ padding:0.5em;
 }
 
 
-.signin-page {
+/*.signin-page {
   background-image: url('../img/signin-01.png');
   background-position:center;
   background-size:cover;
+}*/
+
+.logo-signin img {
+  width:100% ;
+  height: auto;
 }
 
+.form-frame {
+  margin: 2em 1em;
+  padding:1em;
+}
+
+
+.text-signin-page p{
+  text-align: center;
+  font-size: 0.5em;
+}
+
+
 .bar-icons {
-  padding-top: 2em;
+  padding-top: 1em;
 }
 
 .float-button {
@@ -534,20 +567,63 @@ padding:0.5em;
       margin: 2em auto;
 }
 
-.card {
+/*.card {
   display: flex;
-  flex-direction: raw;
-    justify-content: space-around;
     align-items: center;
-    height: 6rem;
     line-height: var(--header-height);
     box-shadow: 0 0 5px rgb(0 0 0 / 20%);
 }
 
 .padding-1em {
   padding:1em;
+}*/
+
+
+
+.card {
+   background-color:var(--color-white);
+   padding:1em;
+   margin: 1em;
+   position:relative;
+   overflow:hidden;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    /* border: solid 0.01rem #C2CFE1; */
+
 }
 
+.full-card {
+      background-color: var(--color-white);
+    padding: 1em;
+    margin: 2em 0;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgb(0,0,0,0.1);
+}
+
+
+.detail-title {
+      margin: auto;
+ /*   position: relative;
+    left: 50%;*/
+    line-height: 0.1em;
+}
+
+
+.animal-profile-img {
+  width: 100%;
+}
+
+
+/*.nav-bar-icon svg {
+  height: 24px;
+    margin: 12px 0;
+}*/
+
+
+.nav-bar-icon .icon {
+  font-size: 1.2em;
+    margin: 0.25em auto;
+}
 /* remove this later */
 #recent-page [data-role='main'] {
   background-image: url('../img/map01.png');

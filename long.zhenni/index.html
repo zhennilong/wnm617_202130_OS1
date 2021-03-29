@@ -8,6 +8,7 @@
 
    <link rel="stylesheet" href="lib/css/jquery.mobile.structure-1.4.5.min.css">
    <link rel="stylesheet" href="css/app.css">
+   <link rel="stylesheet" href="css/gridsystem.css">
    <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 
@@ -24,11 +25,18 @@
 
    <section data-role="page" id="signin-page">
       <div data-role="main" class="display-flex flex-vertical signin-page">
-         <div class="flex-stretch ">
-          <!--   <img src="img/signin.png" alt="logo background"> -->
+         <!-- <div class="flex-stretch ">
+         </div> -->
+         <div class="logo-signin">
+               <img src="img/signin-01.png">
          </div>
-         <div class="flex-none">
-            <form class="form" id="signin-form" data-ajax="false" style="padding:1em">
+
+         <div class="flex-none form-frame">
+            <!-- <div class="logo-signin">
+               <img src="img/signin-01.png">
+            </div> -->
+            
+            <form class="form" id="signin-form" data-ajax="false" >
                <div class="form-control">
                   <label for="signin-username" class="form-label">Username</label>
                   <input class="form-input" type="text" id="signin-username" data-role="none">
@@ -38,9 +46,13 @@
                   <input class="form-input" type="password" id="signin-password" data-role="none">
                </div>
                <div class="form-control">
-                  <a href="#recent-page" class="form-button">Sign In</a>
+                  <input type="submit" href="#recent-page" class="form-button" value="Sign In" data-role="none">
                </div>
+               
             </form>
+            <div class="text-signin-page">
+                  <p>Don't have an account? <strong>SIGN UP</strong></p>
+            </div>
          </div>
       </div>
    </section>
@@ -48,41 +60,35 @@
 
    <section data-role="page" id="recent-page">
      <div data-role="main">
-     <!--  <div class=" map" data-role="none">
-         <img src="img/map.png" alt="map">
-      </div>
-     -->
-  
-
          <div>
             <form class="form">
                <div class="form-control bottom-box">
-                  <input class="form-input" type="text" id="list-add-name" placeholder="Search birds by the name" data-role="none">
+                  <input class="form-input" type="text" id="search-name" placeholder="Search birds by the name" data-role="none">
                </div>
             </form>
 
-            <button class="float-button">
-              
+            <button class="float-button" style="width: 20vw;">
                   <a href="#" class="js-list-add-animal"
-                     data-activate="#list-add-modal">&plus;</a>
-               
+                     data-activate="#list-add-modal" >&plus;</a>
             </button>
+
+
             <div class="modal" id="list-add-modal">
                <div class="modal-back" data-deactivate="#list-add-modal"></div>
                <form class="modal-popup" data-ajax="false" id="list-add-form">
                   <div class="modal-head">Add New Bird</div>
                   <div class="modal-body">
                      <div class="form-control">
-                        <label for="list-add-name" class="form-label">Name</label>
-                        <input class="form-input" type="text" id="list-add-name" data-role="none">
+                        <label for="home-add-name" class="form-label">Name</label>
+                        <input class="form-input" type="text" id="home-add-name" data-role="none">
                      </div>
                      <div class="form-control">
-                        <label for="list-add-type" class="form-label">Type</label>
-                        <input class="form-input" type="text" id="list-add-type" data-role="none">
+                        <label for="home-add-type" class="form-label">Type</label>
+                        <input class="form-input" type="text" id="home-add-type" data-role="none">
                      </div>
                      <div class="form-control">
-                        <label for="list-add-breed" class="form-label">Breed</label>
-                        <input class="form-input" type="text" id="list-add-breed" data-role="none">
+                        <label for="home-add-breed" class="form-label">Breed</label>
+                        <input class="form-input" type="text" id="home-add-breed" data-role="none">
                      </div>
                   </div>
                   <div class="modal-foot display-flex">
@@ -97,28 +103,9 @@
       </div>
   <footer data-role="footer" data-template="#footer-template"></footer>
       
-<!--    <section data-role="page" id="recent-page">
-      <footer data-role="footer" >
-         <ul >
-            <li><a href="#" class="js-list-add-animal" data-activate="#list-add-modal">+</a></li>
-            <li class="flex-stretch">
-               <div>
-                  <a class="bar-icons " href="#recent-page" >Home</a>
-                  <a href="#list-page" >List</a>
-                  <a href="#user-profile-page">User</a>
-               </div>
-            </li>
-         </ul>
-      </footer>
-   </section> -->
 
 
-      <!-- <footer data-role="footer">
-         
-         <a class="bar-icons" href="#recent-page">Home</a>
-         <a href="#list-page">List</a>
-         <a href="#user-profile-page">User</a>
-      </footer> -->
+  
    </section>
 
    <section data-role="page" id="list-page">
@@ -134,69 +121,102 @@
          <div class="overscroll">
          <!-- ul>li*10>a[href=#animal-profile-page]>{Animal $} -->
          <ul class="list-page">
-            <li>
-               <a href="#animal-profile-page" class="ui-link animal-detail display-flex bottom-line">
-                  <img class="detail-img" src="img/canadian_duck.jpg" alt="">
-                  <div class="detail-title margin-auto">Animal 1 </div>
-    
-               </a>
-            </li>
-            <li>
-               <a href="#animal-profile-page" class="ui-link animal-detail display-flex bottom-line">
-                  <img class="detail-img" src="img/canadian_duck.jpg" alt="">
-                  <div class="detail-title margin-auto">Animal 2</div>
-    
-               </a>
-            </li>
-            <li>
-               <a href="#animal-profile-page" class="ui-link animal-detail display-flex bottom-line">
-                  <img class="detail-img" src="img/canadian_duck.jpg" alt="">
-                  <div class="detail-title margin-auto">Animal 3</div>
-               </a>
-            </li>
-            <li>
-               <a href="#animal-profile-page" class="ui-link animal-detail display-flex bottom-line">
-                  <img class="detail-img" src="img/canadian_duck.jpg" alt="">
-                  <div class="detail-title margin-auto">Animal 4</div>
-               </a>
-            </li>
-            <li>
-               <a href="#animal-profile-page" class="ui-link animal-detail display-flex bottom-line">
-                  <img class="detail-img" src="img/canadian_duck.jpg" alt="">
-                  <div class="detail-title margin-auto">Animal 5</div>
-               </a>
-            </li>
-            <li>
-               <a href="#animal-profile-page" class="ui-link animal-detail display-flex bottom-line">
-                  <img class="detail-img" src="img/canadian_duck.jpg" alt="">
-                  <div class="detail-title margin-auto">Animal 6</div>
-               </a>
-            </li>
-            <li>
-               <a href="#animal-profile-page" class="ui-link animal-detail display-flex bottom-line">
-                  <img class="detail-img" src="img/canadian_duck.jpg" alt="">
-                  <div class="detail-title margin-auto">Animal 7</div>
-               </a>
-            </li>
-            <li>
-               <a href="#animal-profile-page" class="ui-link animal-detail display-flex bottom-line">
-                  <img class="detail-img" src="img/canadian_duck.jpg" alt="">
-                  <div class="detail-title margin-auto">Animal 8</div>
-               </a>
-            </li>
-            <li>
-               <a href="#animal-profile-page" class="ui-link animal-detail display-flex bottom-line">
-                  <img class="detail-img" src="img/canadian_duck.jpg" alt="">
-                  <div class="detail-title margin-auto">Animal 9</div>
-               </a>
-            </li>
-            <li>
-               <a href="#animal-profile-page" class="ui-link animal-detail display-flex bottom-line">
-                  <img class="detail-img" src="img/canadian_duck.jpg" alt="">
-                  <div class="detail-title margin-auto">Animal 10</div>
+            <li class="card">
+
+               <a href="#animal-profile-page" class="ui-link animal-detail display-flex " style="padding:0;">
+                  <div class=" display-flex flex-align-center ">
+                        <img class="detail-img" src="img/canadian_duck.jpg" alt="">
+                  </div>
                  
-                  </a>
-               </li>
+                  <div class="detail-title margin-auto display-flex text-center flex-vertical" >
+                        <p>Animal 1 </p>
+                        <p>1.5 miles</p>
+                  </div>
+                   
+               
+               </a>
+            </li>
+
+             <li class="card">
+
+               <a href="#animal-profile-page" class="ui-link animal-detail display-flex " style="padding:0;">
+                  <div class="display-flex flex-align-center ">
+                        <img class="detail-img" src="img/canadian_duck.jpg" alt="">
+                  </div>
+                 
+                  <div class="detail-title margin-auto display-flex text-center flex-vertical" >
+                        <p>Animal 1 </p>
+                        <p>1.5 miles</p>
+                  </div>
+                   
+               
+               </a>
+            </li>
+
+             <li class="card">
+
+               <a href="#animal-profile-page" class="ui-link animal-detail display-flex " style="padding:0;">
+                  <div class="display-flex flex-align-center ">
+                        <img class="detail-img" src="img/canadian_duck.jpg" alt="">
+                  </div>
+                 
+                  <div class="detail-title margin-auto display-flex text-center flex-vertical" >
+                        <p>Animal 1 </p>
+                        <p>1.5 miles</p>
+                  </div>
+                   
+               
+               </a>
+            </li>
+
+             <li class="card">
+
+               <a href="#animal-profile-page" class="ui-link animal-detail display-flex " style="padding:0;">
+                  <div class=" display-flex flex-align-center ">
+                        <img class="detail-img" src="img/canadian_duck.jpg" alt="">
+                  </div>
+                 
+                  <div class="detail-title margin-auto display-flex text-center flex-vertical" >
+                        <p>Animal 1 </p>
+                        <p>1.5 miles</p>
+                  </div>
+                   
+               
+               </a>
+            </li>
+
+             <li class="card">
+
+               <a href="#animal-profile-page" class="ui-link animal-detail display-flex " style="padding:0;">
+                  <div class=" display-flex flex-align-center ">
+                        <img class="detail-img" src="img/canadian_duck.jpg" alt="">
+                  </div>
+                 
+                  <div class="detail-title margin-auto display-flex text-center flex-vertical" >
+                        <p>Animal 1 </p>
+                        <p>1.5 miles</p>
+                  </div>
+                   
+               
+               </a>
+            </li>
+
+             <li class="card">
+
+               <a href="#animal-profile-page" class="ui-link animal-detail display-flex " style="padding:0;">
+                  <div class=" display-flex flex-align-center ">
+                        <img class="detail-img" src="img/canadian_duck.jpg" alt="">
+                  </div>
+                 
+                  <div class="detail-title margin-auto display-flex text-center flex-vertical" >
+                        <p>Animal 1 </p>
+                        <p>1.5 miles</p>
+                  </div>
+                   
+               
+               </a>
+            </li>
+           
             </ul>
          </div>
       </div>
@@ -243,41 +263,55 @@
    <section data-role="page" id="user-profile-page">
       <header data-role="header">
          <h1>User Profile</h1>
-         <ul>
+        <!--  <ul>
             <li class="flex-stretch"></li>
             <li class="floater right">
                <a href="#" class="icon" data-activate="#user-settings-modal">
                   <img src="img/more.svg" alt="">
                </a>
             </li>
-         </ul>
+         </ul> -->
       </header>
-      <div data-role="main" class="text-center display-flex flex-vertical">
-         
-      <div class="text-center display-flex flex-vertical">
-         <img src="img/canadian_duck.jpg" class="profile-photo">
-         User Name
-      </div>
+      
 
-         
-         <div class="page-button">
-            <a href="#recent-page" class="form-button">Edit Profile</a>
+      <div data-role="main" class="text-center display-flex flex-vertical">
+         <div class="overscroll"> 
+            <div class="text-center display-flex flex-vertical">
+               <img src="img/canadian_duck.jpg" class="profile-photo">
+               <strong>Hello World</strong><br>
+               birdtracker@gmail.com<br>
+               San Francisco, CA
+            
+            </div>
+
+            <div class="full-card grid">
+                  <div class="col-xs-6">Favorite</div>
+                  <div class="col-xs-6">Bird List</div>
+            </div>
+
+            <div class=" form-frame">
+               <a href="#user-profile-edit-page" class="form-button">Edit Profile</a>
+               
+            </div>
+            
+            
+           
+            <div class=>
+               <p class="text-center">
+                  <a href="#" class="js-logout">Sign Out</a>
+               </p>
+            </div>
          </div>
-         <div class="card">
-            <ul>
-               <li>Favorite</li>
-               <li>Bird List</li>
-            </ul>
-         </div>
-         <p class="text-center">
-            <a href="#" class="js-logout">Sign Out</a>
-         </p>
+
+
 
        <!--   <div class="floater top right">
             <a href="#" class="icon" data-activate="#user-settings-modal"><img src="img/more.svg" alt=""></a>
          </div> -->
 
 
+         <!-- 
+         ---- User page setting menu ----
          <div class="modal" id="user-settings-modal">
             <div class="modal-drawer right">
                <div class="modal-head display-flex">
@@ -285,15 +319,57 @@
                   <div class="flex-stretch"></div>
                   <div class="flex-none"><a href="#"data-deactivate="#user-settings-modal">&times;</a></div>
                </div>
-               <div class="modal-body"><div class="overscroll">
-               </div>
+               <div class="modal-body">
+                  <div class="overscroll"></div>
                </div>
             </div>
-         </div>
+         </div> -->
       </div>
       <footer data-role="footer" data-template="#footer-template"></footer>
    </section>
 
+
+<section data-role="page" id="user-profile-edit-page">
+      <header data-role="header" class="display-flex">
+         <h1>Edit Profile</h1>
+         <a class="top-bar-icons" href="#" data-rel="back">Back</a>
+      </header>
+      <div data-role="main">
+          <div class="overscroll">
+             <div >
+                <img class="animal-profile-img" src="img/canadian_duck.jpg" alt="">
+             </div>
+             <div class="form-frame">
+                <form  data-ajax="false" id="list-add-form">
+                  
+                  <div >
+                     <div class="form-control">
+                        <label for="edit-add-name" class="form-label">User Name</label>
+                        <input class="form-input" type="text" id="edit-add-name" data-role="none">
+                     </div>
+                     <div class="form-control">
+                        <label for="edit-add-type" class="form-label">Email</label>
+                        <input class="form-input" type="text" id="edit-add-type" data-role="none">
+                     </div>
+                     <div class="form-control">
+                        <label for="edit-add-breed" class="form-label">Location</label>
+                        <input class="form-input" type="text" id="edit-add-breed" data-role="none">
+                     </div>
+                  </div>
+                   <div class="form-control">
+                     <input type="submit" href="#recent-page" class="form-button" value="Save" data-role="none">
+                   </div>
+               </form>
+            </div> 
+         </div>      
+      </div>
+
+     
+      <!-- <footer data-role="footer-not-main">
+         <a href="#animal-profile-page" data-deactivate="#list-add-modal">Save</a>
+
+      </footer> -->
+   </section>
 
    
    <!--  ANIMAL DATA SECTION -->
@@ -301,18 +377,25 @@
    <section data-role="page" id="animal-profile-page">
       <header data-role="header" class="display-flex">
          <h1>Animal Profile</h1>
-         <a class="top-bar-icons" href="#" data-rel="back">Back</a>
+         <!-- <a class="top-bar-icons" href="#list-page" data-rel="back">Back</a> -->
+         <a class="top-bar-icons" href="#list-page" >Back</a>
       </header>
-      <div data-role="main">
+      <div data-role="main" >
 
-         <img src="img/canadian_duck.jpg" alt="">
-         <div class="description">
-            <h3>Animal 1</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet erat dolor. Cras ultricies aliquam mauris vel placerat.</p>
-         </div>
+      
+         <div class="overscroll">
+            <div>
+               <img class="animal-profile-img" src="img/canadian_duck.jpg" alt="">
+               <div class="description">
+                  <h3>Animal 1</h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet erat dolor. Cras ultricies aliquam mauris vel placerat.</p>
+               </div>
+            </div>
+      </div>
+    
          
      <footer data-role="footer-not-main">
-         <a class="bar-icons" href="#recent-page"><img src="img/heart.svg"></a>
+         <a class="bar-icons" href="#"><img src="img/icon/heart.svg"></a>
          <a href="#animal-profile-edit-page" >Edit</a>
 
       </footer>
@@ -327,39 +410,54 @@
          <h1>Edit Info</h1>
          <a class="top-bar-icons" href="#" data-rel="back">Back</a>
       </header>
-      <div>
-          <form  data-ajax="false" id="list-add-form">
-            <div >
-             <img src="img/canadian_duck.jpg" alt="">
-          </div>
-            <div class="padding-1em">
-               <div class="form-control">
-                  <label for="list-add-name" class="form-label">Name</label>
-                  <input class="form-input" type="text" id="list-add-name" data-role="none">
-               </div>
-               <div class="form-control">
-                  <label for="list-add-type" class="form-label">Type</label>
-                  <input class="form-input" type="text" id="list-add-type" data-role="none">
-               </div>
-               <div class="form-control">
-                  <label for="list-add-breed" class="form-label">Breed</label>
-                  <input class="form-input" type="text" id="list-add-breed" data-role="none">
-               </div>
-            </div>
-            
-         </form>        
+      <div data-role="main">
+          <div class="overscroll">
+             <div >
+                <img class="animal-profile-img" src="img/canadian_duck.jpg" alt="">
+             </div>
+             <div class="form-frame">
+                <form  data-ajax="false" id="list-add-form">
+                  
+                  <div >
+                     <div class="form-control">
+                        <label for="edit-add-name" class="form-label">Name</label>
+                        <input class="form-input" type="text" id="edit-add-name" data-role="none">
+                     </div>
+                     <div class="form-control">
+                        <label for="edit-add-type" class="form-label">Type</label>
+                        <input class="form-input" type="text" id="edit-add-type" data-role="none">
+                     </div>
+                     <div class="form-control">
+                        <label for="edit-add-breed" class="form-label">Breed</label>
+                        <input class="form-input" type="text" id="edit-add-breed" data-role="none">
+                     </div>
+                  </div>
+                   <div class="form-control">
+                     <input type="submit" href="#recent-page" class="form-button" value="Save" data-role="none">
+                   </div>
+               </form>
+            </div> 
+         </div>      
       </div>
-      <footer data-role="footer-not-main">
+
+     
+      <!-- <footer data-role="footer-not-main">
          <a href="#animal-profile-page" data-deactivate="#list-add-modal">Save</a>
 
-      </footer>
+      </footer> -->
    </section>
 
    <script type="text/template" id="footer-template">
-      <ul>
-         <li><a href="#recent-page">Home</a></li>
-         <li><a href="#list-page">List</a></li>
-         <li><a href="#user-profile-page">User</a></li>
+      <ul class="nav-bar-icon">
+         <li><a href="#recent-page">
+            <img class="icon" src="img/icon/map.svg">
+         </a></li>
+         <li><a href="#list-page">
+             <img class="icon" src="img/icon/list.svg">
+         </a></li>
+         <li><a href="#user-profile-page">
+          <img class="icon" src="img/icon/user.svg">
+       </a></li>
       </ul>
    </script>
 
