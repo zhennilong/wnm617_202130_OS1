@@ -14,28 +14,31 @@
 
    <script src="lib/js/jquery-2.2.4.min.js"></script>
 
-    <script src="js/signin.js"></script>
-
+   <script src="js/functions.js"></script>
+   <script src="js/pages.js"></script>
+   <script src="js/parts.js"></script>
+   <script src="js/signin.js"></script>
+   <script src="js/maps.js"></script>
    <script src="js/app.js"></script>
+   <script
+         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIgw7ZAqGE4dBFdeACQEnHlB3ElC-bvIU&libraries=&v=weekly"
+         async
+       ></script>
+<!-- AIzaSyBIgw7ZAqGE4dBFdeACQEnHlB3ElC-bvIU -->
 
    <script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
+
 </head>
 <body>
 
-
+ <!-- To-do: complete sign-up page-->
    <section data-role="page" id="signin-page">
       <div data-role="main" class="display-flex flex-vertical signin-page">
-         <!-- <div class="flex-stretch ">
-         </div> -->
          <div class="logo-signin">
                <img src="img/signin-01.png">
          </div>
 
-         <div class="flex-none form-frame">
-            <!-- <div class="logo-signin">
-               <img src="img/signin-01.png">
-            </div> -->
-            
+         <div class="flex-none form-frame">    
             <form class="form" id="signin-form" data-ajax="false" >
                <div class="form-control">
                   <label for="signin-username" class="form-label">Username</label>
@@ -56,23 +59,33 @@
          </div>
       </div>
    </section>
+  
+  <!--     <section data-role="page" id="recent-page">
+      <div data-role="main">
+         <div class="map"></div>
+      </div>
+      <footer data-role="footer" data-template="#footer-template"></footer>
+   </section> -->
 
 
-   <section data-role="page" id="recent-page">
+
+
+ <section data-role="page" id="recent-page">
      <div data-role="main">
+      <div class="map">
          <div>
-            <form class="form">
+           <!--  <form class="form">
                <div class="form-control bottom-box">
-                  <input class="form-input" type="text" id="search-name" placeholder="Search birds by the name" data-role="none">
+                  <input class="form-input" type="search" id="search-name" placeholder="Search birds by the name" data-role="none">
                </div>
-            </form>
+            </form> -->
 
             <button class="float-button" style="width: 20vw;">
                   <a href="#" class="js-list-add-animal"
                      data-activate="#list-add-modal" >&plus;</a>
             </button>
 
-
+         <!-- To think about where put the "add" button -->
             <div class="modal" id="list-add-modal">
                <div class="modal-back" data-deactivate="#list-add-modal"></div>
                <form class="modal-popup" data-ajax="false" id="list-add-form">
@@ -83,7 +96,7 @@
                         <input class="form-input" type="text" id="home-add-name" data-role="none">
                      </div>
                      <div class="form-control">
-                        <label for="home-add-type" class="form-label">Type</label>
+                        <label for="home-add-type" class="form-label">Size</label>
                         <input class="form-input" type="text" id="home-add-type" data-role="none">
                      </div>
                      <div class="form-control">
@@ -101,16 +114,15 @@
             </div>
          </div>
       </div>
-  <footer data-role="footer" data-template="#footer-template"></footer>
-      
-
-
-  
+      </div>
+      <footer data-role="footer" data-template="#footer-template"></footer>
    </section>
+
+
 
    <section data-role="page" id="list-page">
       <header data-role="header">
-         <h1>Animal Detail</h1>
+         <h1>Bird List</h1>
          <!-- <ul>
             <li class="flex-stretch"></li>
             <li><a href="#" class="js-list-add-animal"
@@ -119,105 +131,32 @@
       </header>
       <div data-role="main">
          <div class="overscroll">
-         <!-- ul>li*10>a[href=#animal-profile-page]>{Animal $} -->
-         <ul class="list-page">
-            <li class="card">
+            <form class="form">
+               <div class="form-control bottom-box">
+                  <input class="form-input" type="search" id="search-name" placeholder="Search birds by the name" data-role="none">
+               </div>
+            </form>
+         
+                  <!-- <ul class="list-page">
+                     <li class="card">
 
-               <a href="#animal-profile-page" class="ui-link animal-detail display-flex " style="padding:0;">
-                  <div class=" display-flex flex-align-center ">
-                        <img class="detail-img" src="img/canadian_duck.jpg" alt="">
-                  </div>
-                 
-                  <div class="detail-title margin-auto display-flex text-center flex-vertical" >
-                        <p>Animal 1 </p>
-                        <p>1.5 miles</p>
-                  </div>
-                   
-               
-               </a>
-            </li>
+                        <a href="#animal-profile-page" class="ui-link animal-detail display-flex " style="padding:0;">
+                           <div class=" display-flex flex-align-center ">
+                                 <img class="detail-img" src="img/canadian_duck.jpg" alt="">
+                           </div>
+                          
+                           <div class="detail-title margin-auto display-flex text-center flex-vertical" >
+                                 <p><strong>Animal 1 </strong> </p>
+                                 <p>1.5 miles</p>
+                           </div>
+                            
+                        
+                        </a>
+                     </li>
 
-             <li class="card">
-
-               <a href="#animal-profile-page" class="ui-link animal-detail display-flex " style="padding:0;">
-                  <div class="display-flex flex-align-center ">
-                        <img class="detail-img" src="img/canadian_duck.jpg" alt="">
-                  </div>
-                 
-                  <div class="detail-title margin-auto display-flex text-center flex-vertical" >
-                        <p>Animal 1 </p>
-                        <p>1.5 miles</p>
-                  </div>
-                   
-               
-               </a>
-            </li>
-
-             <li class="card">
-
-               <a href="#animal-profile-page" class="ui-link animal-detail display-flex " style="padding:0;">
-                  <div class="display-flex flex-align-center ">
-                        <img class="detail-img" src="img/canadian_duck.jpg" alt="">
-                  </div>
-                 
-                  <div class="detail-title margin-auto display-flex text-center flex-vertical" >
-                        <p>Animal 1 </p>
-                        <p>1.5 miles</p>
-                  </div>
-                   
-               
-               </a>
-            </li>
-
-             <li class="card">
-
-               <a href="#animal-profile-page" class="ui-link animal-detail display-flex " style="padding:0;">
-                  <div class=" display-flex flex-align-center ">
-                        <img class="detail-img" src="img/canadian_duck.jpg" alt="">
-                  </div>
-                 
-                  <div class="detail-title margin-auto display-flex text-center flex-vertical" >
-                        <p>Animal 1 </p>
-                        <p>1.5 miles</p>
-                  </div>
-                   
-               
-               </a>
-            </li>
-
-             <li class="card">
-
-               <a href="#animal-profile-page" class="ui-link animal-detail display-flex " style="padding:0;">
-                  <div class=" display-flex flex-align-center ">
-                        <img class="detail-img" src="img/canadian_duck.jpg" alt="">
-                  </div>
-                 
-                  <div class="detail-title margin-auto display-flex text-center flex-vertical" >
-                        <p>Animal 1 </p>
-                        <p>1.5 miles</p>
-                  </div>
-                   
-               
-               </a>
-            </li>
-
-             <li class="card">
-
-               <a href="#animal-profile-page" class="ui-link animal-detail display-flex " style="padding:0;">
-                  <div class=" display-flex flex-align-center ">
-                        <img class="detail-img" src="img/canadian_duck.jpg" alt="">
-                  </div>
-                 
-                  <div class="detail-title margin-auto display-flex text-center flex-vertical" >
-                        <p>Animal 1 </p>
-                        <p>1.5 miles</p>
-                  </div>
-                   
-               
-               </a>
-            </li>
-           
-            </ul>
+                      
+                     </ul> -->
+               <div class="animallist"></div>
          </div>
       </div>
       <footer data-role="footer" data-template="#footer-template"></footer>
@@ -292,8 +231,10 @@
                      <div>Favorite</div>
                   </div>
                   <div class="col-xs-6 flex-vertical">
-                     <div><img class="icon" src="img/icon/list.svg" style="height: 2em;"></div>
-                     <div>Bird List</div>
+                     <a href="#list-page" >
+                        <div><img class="icon" src="img/icon/list.svg" style="height: 2em;"></div>
+                        <div>Bird List</div>
+                     </a>
                   </div>
             </div>
 
@@ -388,28 +329,60 @@
          <!-- <a class="top-bar-icons" href="#list-page" data-rel="back">Back</a> -->
          <a class="top-bar-icons" href="#list-page" >Back</a>
       </header>
-      <div data-role="main" >
-
       
+      <div data-role="main"  class="display-flex flex-vertical">   
          <div class="overscroll">
             <div>
                <img class="animal-profile-img" src="img/canadian_duck.jpg" alt="">
-               <div class="description">
-                  <h3>Animal 1</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet erat dolor. Cras ultricies aliquam mauris vel placerat.</p>
-               </div>
+
+               
+                      <!--   <div class="header animal-nav">
+                           <ul>
+                              <li class="flex-stretch"><a href="#">map</a></li>
+                              <li class="flex-stretch"><a href="#">info</a></li>
+                           </ul>
+                        </div>
+                        <div class="animal-bottom">
+                           <div class="animal-bottom-section animal-map map"></div>
+                           <div class="animal-bottom-section animal-info"></div>
+                        </div> -->
+               
+             
+
+                <div class="description">
+                  <div class="card">
+                  <a class="js-list-add-animal  flex-vertical" data-activate="#map-modal"  href="#">
+                     <img class="icon" src="img/icon/map.svg">
+                     Its location
+                  </a>
+                  </div>
+
+
+
+                  <div class=" animal-info">
+                     <h3>Animal 1</h3>
+                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet erat dolor. Cras ultricies aliquam mauris vel placerat.</p>
+                  </div>
+               </div> 
+
+
             </div>
-      </div>
+         </div>
     
          
-     <footer data-role="footer-not-main">
-         <a class="bar-icons" href="#"><img src="img/icon/heart.svg"></a>
-         <a href="#animal-profile-edit-page" >Edit</a>
+         <footer data-role="footer-not-main">
+            <a class="bar-icons" href="#"><img src="img/icon/heart.svg"></a>
+            <a href="#animal-profile-edit-page" >Edit</a>
+         </footer>
 
-      </footer>
       </div>
-   
 
+      <div class="modal" id="map-modal">
+               <div class="modal-back" data-deactivate="#map-modal"></div>
+               <div class="modal-popup" data-ajax="false" id="map-specific">
+                  <div class="animal-map map" style="position: relative;"></div>
+               </div>
+      </div>
    </section>
 
 

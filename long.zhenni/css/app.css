@@ -46,7 +46,7 @@ h1 {
 a {
    color:inherit;
    text-decoration:none;
-   font-weight:bold;
+   /*font-weight:bold;*/
 }
 a:hover {
    /*text-decoration: underline;*/
@@ -296,6 +296,7 @@ a:hover {
 .modal-popup {
   position: absolute;
   width:80%;
+  height: 80%;
   top: 50%;
   left: 50%;
   transform: translate(-50%,calc(-50% + 5vh));
@@ -492,8 +493,18 @@ ul  {
 
 
 
-.map img {
+/*.map img {
   width: 100%;
+}*/
+
+
+/* remove this later */
+.map {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
 }
 
 
@@ -529,7 +540,7 @@ padding:0.5em;
 
 .text-signin-page p{
   text-align: center;
-  font-size: 0.5em;
+  font-size: 0.8em;
 }
 
 
@@ -629,4 +640,105 @@ padding:0.5em;
   background-image: url('../img/map01.png');
   background-position:center;
   background-size:cover;
+}
+
+
+/* ANIMAL PROFILE PAGE */
+.animal-top {
+  flex:none;
+  height:40vh;
+  background-position:center;
+  background-size:cover;
+}
+.animal-bottom {
+  flex:1 1 100%;
+  position:relative;
+  overflow:hidden;
+}
+.animal-bottom-section {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+}
+.animal-nav {
+  text-align:center;
+}
+
+.animal-nav li {
+  position:relative;
+}
+.animal-nav .active::after {
+  content:'';
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:3px;
+  background-color:var(--color-main-medium);
+}
+.animal-bottom-section {
+  display:none;
+}
+.animal-bottom-section.active {
+  display:block;
+}
+
+
+
+.animallist {
+}
+.animallist-item {
+  font-weight:normal;
+  margin: 1em;
+  border-radius: 1em;
+  overflow: hidden;
+  box-shadow: 0 5px 10px rgb(0 0 0 / 20%);
+}
+.animallist-image img{
+  width:100px;
+  height:100px;
+  vertical-align: middle;
+}
+.animallist-description {
+  padding:1em;
+}
+.animallist-name {
+  font-size:1.3em;
+}
+
+
+/* Navigation Elements */
+.header a,
+[data-role="header"] a,
+[data-role="footer"] a {
+  display:block;
+  margin:0;
+}
+
+.header ul,
+[data-role="header"] ul,
+[data-role="footer"] ul {
+  list-style-type:none;
+  margin:0;
+  padding:0;
+  display:flex;
+  position:relative;
+}
+[data-role="footer"] li {
+  text-align:center;
+  flex: 1 1 auto;
+}
+
+.header a,
+[data-role="header"] a {
+  padding: 0 1em;
+}
+
+
+.header {
+  width:100%;
+   height: var(--header-height);
+   line-height: var(--header-height);
 }
