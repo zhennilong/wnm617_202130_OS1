@@ -80,10 +80,10 @@
                </div>
             </form> -->
 
-            <button class="float-button" style="width: 20vw;">
+           <!--  <button class="float-button" style="width: 20vw;">
                   <a href="#" class="js-list-add-animal"
                      data-activate="#list-add-modal" >&plus;</a>
-            </button>
+            </button> -->
 
          <!-- To think about where put the "add" button -->
             <div class="modal" id="list-add-modal">
@@ -114,6 +114,10 @@
             </div>
          </div>
       </div>
+         <div class="floater bottom right" style="padding:1em">
+            <a href="#choose-animal-page" class="circle-button">&plus;</a>
+         </div>
+
       </div>
       <footer data-role="footer" data-template="#footer-template"></footer>
    </section>
@@ -353,7 +357,7 @@
                   <div class="card">
                   <a class="js-list-add-animal  flex-vertical" data-activate="#map-modal"  href="#">
                      <img class="icon" src="img/icon/map.svg">
-                     Its location
+                     <p>Its location</p>
                   </a>
                   </div>
 
@@ -388,10 +392,18 @@
 
    <section data-role="page" id="animal-profile-edit-page">
       <header data-role="header" class="display-flex">
-         <h1>Edit Info</h1>
+         <h1>Edit Animal</h1>
          <a class="top-bar-icons" href="#" data-rel="back">Cancel</a>
       </header>
-      <div data-role="main">
+
+      <div data-role="main" class="display-flex flex-vertical">
+         <div class="overscroll">
+            <form id="animal-edit-form" data-ajax="false" style="padding:1em"></form>
+         </div>
+      </div>
+
+
+      <!-- <div data-role="main">
           <div class="overscroll">
              <div >
                 <img class="animal-profile-img" src="img/canadian_duck.jpg" alt="">
@@ -419,7 +431,7 @@
                </form>
             </div> 
          </div>      
-      </div>
+      </div> -->
 
      
       <!-- <footer data-role="footer-not-main">
@@ -427,6 +439,62 @@
 
       </footer> -->
    </section>
+
+
+   <section data-role="page" id="choose-animal-page">
+      <header data-role="header">
+         <h1>Choose Animal</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Cancel</a></li>
+            <li class="flex-stretch"></li>
+            <li><a href="#choose-location-page">Next</a></li>
+         </ul>
+      </header>
+      <div data-role="main" class="display-flex flex-vertical">
+         <div class="overscroll">
+            <form>
+               <div>Create New Animal</div>
+               <div>Choose Animal</div>
+            </form>
+         </div>
+      </div>
+   </section>
+
+   <section data-role="page" id="choose-location-page">
+      <header data-role="header">
+         <h1>Choose Location</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Cancel</a></li>
+            <li class="flex-stretch"></li>
+            <li><a href="#location-description-page">Next</a></li>
+         </ul>
+      </header>
+      <div data-role="main" class="display-flex flex-vertical">
+         <div class="map"></div>
+      </div>
+   </section>
+
+   <section data-role="page" id="location-description-page">
+      <header data-role="header">
+         <h1>Describe Animal</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Cancel</a></li>
+            <li class="flex-stretch"></li>
+            <li><a href="#" data-rel="back">Next</a></li>
+         </ul>
+      </header>
+      <div data-role="main" class="display-flex flex-vertical">
+         <div class="overscroll">
+            <form>
+               <div class="form-control">
+                  <textarea name="location-description" id="location-description" rows="10" class="form-input"></textarea>
+               </div>
+            </form>
+         </div>
+      </div>
+   </section>
+
+
 
    <script type="text/template" id="footer-template">
       <ul class="nav-bar-icon">

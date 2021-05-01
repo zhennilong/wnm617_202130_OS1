@@ -264,6 +264,7 @@ a:hover {
 
 
 
+
 /* MODAL */
 .modal {
     position: absolute;
@@ -308,6 +309,9 @@ a:hover {
   transform: translate(-50%,-50%);
   pointer-events:initial;
 }
+.modal-popup.small {
+  width:initial;
+}
 
 
 
@@ -342,6 +346,16 @@ a:hover {
 
 
 
+.modal-drawer.modal-card {
+  padding:1em;
+  box-shadow:none;
+}
+.modal-card .modal-body {
+  box-shadow:0 0 5px rgba(0,0,0,0.3);
+  border-radius:1em;
+}
+
+
 .modal-head,
 .modal-foot {
   background-color:var(--color-neutral-light);
@@ -354,6 +368,9 @@ a:hover {
   position:relative;
   overflow:hidden;
 }
+
+
+
 
 
 
@@ -709,6 +726,23 @@ padding:0.5em;
 }
 
 
+.animal-image-thumb img {
+  width:6em;
+  height:6em;
+  vertical-align: middle;
+}
+
+
+
+.animal-jump * {
+  pointer-events:none;
+}
+
+
+
+
+
+
 /* Navigation Elements */
 .header a,
 [data-role="header"] a,
@@ -741,4 +775,41 @@ padding:0.5em;
   width:100%;
    height: var(--header-height);
    line-height: var(--header-height);
+}
+
+.animal-info {
+   background-color:var(--color-neutral-light);
+   padding:1em;
+   margin: 1em;
+   position:relative;
+   overflow:hidden;
+   text-align: center;
+   font-size: 1.2em;
+
+}
+
+.animal-name {
+  padding: 0.5em 0;
+}
+
+.animal-size {
+  padding: 0.5em 0;
+}
+
+.animal-breed {
+  padding: 0.5em 0;
+}
+
+
+.circle-button {
+  display:inline-block;
+  vertical-align:middle;
+  background-color:white;
+  box-shadow:2px 2px 5px rgba(0,0,0,0.2);
+  border-radius:50%;
+  height:var(--header-height);
+  line-height:var(--header-height);
+  width:var(--header-height);
+  text-align:center;
+  font-size:2em;
 }
