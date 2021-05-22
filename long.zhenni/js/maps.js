@@ -1,3 +1,4 @@
+
 const makeMap = async (target,center={lat: 37.735078,lng: -122.436844}) => {
    await checkData(()=>window.google);
 
@@ -34,7 +35,7 @@ const makeMarkers = (map_el,map_locs) => {
          position: o,
          map: map,
          icon: {
-            url: o.icon,
+            url: 'img/icon/pin_feet_cutout.png',
             scaledSize: {
                width:40,
                height:40
@@ -62,7 +63,7 @@ const setMapBounds = (map_el,map_locs) => {
          navigator.geolocation.getCurrentPosition(p=>{
             let pos = {
                lat:p.coords.latitude,
-               lat:p.coords.longitude
+               lng:p.coords.longitude
             };
             map.setCenter(pos);
             map.setZoom(zoom);
@@ -82,6 +83,8 @@ const setMapBounds = (map_el,map_locs) => {
       map.fitBounds(bounds);
    }
 }
+
+
 
 
 

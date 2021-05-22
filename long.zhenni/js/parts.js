@@ -14,6 +14,10 @@ const makeAnimalList = templater(o=>`
 const makeUserProfile = o => `
 <div class="user-profile-image">
    <img src="${o.img}" alt="">
+
+   <div class="floater bottom right">
+      <a href="#user-upload-page" class="icon"><img src="img/icon/pencil.svg" alt=""></a>
+   </div>
 </div>
 <div class="user-profile-description">
    <div class="user-profile-name">${o.name}</div>
@@ -22,10 +26,18 @@ const makeUserProfile = o => `
 `;
 
 const makeAnimalInfo = o => `
-<div class="animal-name">Name: ${o.name}</div>
-<div class="animal-size">Size: ${o.size}</div>
-<div class="animal-breed">Breed: ${o.breed}</div>
+<div class="animal-name">${o.name}</div>
+<div class="animal-size">${o.size}</div>
+<div class="animal-breed">${o.breed}</div>
+<div class="animal-description"> 
+      <h2>Description</h2>
+      <div>${o.description}</div>
+      </div>
+<button class="form-button animal-delete icon" data-id="${o.id}"><img src="img/icon/delete.svg" alt=""></button>
 `;
+
+
+
 
 const makeAnimalPopup = o => `
 <div class="display-flex animal-jump" data-id="${o.animal_id?o.animal_id:o.id}">
@@ -41,14 +53,16 @@ const makeAnimalPopup = o => `
 `;
 
 
+
+
 // destructuring
-const FormControlInput = ({namespace,name,displayname,size,placeholder,value}) => {
+const FormControlInput = ({namespace,name,displayname,type,placeholder,value}) => {
    return `<div class="form-control">
       <label for="${namespace}-${name}" class="form-label">${displayname}</label>
-      <input class="form-input" size="${size}" id="${namespace}-${name}" data-role="none" placeholder="${placeholder}" value="${value}">
+      <input class="form-input" type="${type}" id="${namespace}-${name}" data-role="none" placeholder="${placeholder}" value="${value}">
    </div>`;
 }
-const FormControlTextarea = ({namespace,name,displayname,size,placeholder,value}) => {
+const FormControlTextarea = ({namespace,name,displayname,type,placeholder,value}) => {
    return `<div class="form-control">
       <label for="${namespace}-${name}" class="form-label">${displayname}</label>
       <textarea class="form-input" id="${namespace}-${name}" data-role="none" placeholder="${placeholder}">${value}</textarea>
@@ -56,38 +70,138 @@ const FormControlTextarea = ({namespace,name,displayname,size,placeholder,value}
 }
 
 
+const FormSelectOptions = (options,selected=1) => {
+   return options.reduce((r,o)=>{
+      return r+`<option value="${o.id}" ${o.id===selected?'selected':''}>${o.name}</option>`
+   },'');
+}
 
-const makeAnimalProfileUpdateForm = o => `
+const FormSelect = (options,id,selected=1) => {
+   return `<div class='form-select'>
+      <select id="${id}">
+         ${FormSelectOptions(options,selected)}
+      </select>
+   </div>`;
+}
+
+
+
+const makeAnimalProfileUpdateForm = (o,namespace="animal-edit") => `
 ${FormControlInput({
-   namespace:"animal-edit",
+   namespace:namespace,
    name:'name',
    displayname:'Name',
-   size:'text',
+   type:'text',
    placeholder:'Type The Animal Name',
    value:o.name
 })}
 ${FormControlInput({
-   namespace:"animal-edit",
+   namespace:namespace,
    name:'size',
-   displayname:'size',
-   size:'text',
-   placeholder:'Type The Animal size',
+   displayname:'Size',
+   type:'text',
+   placeholder:'Type The Animal Size',
    value:o.size
 })}
 ${FormControlInput({
-   namespace:"animal-edit",
+   namespace:namespace,
    name:'breed',
    displayname:'Breed',
-   size:'text',
+   type:'text',
    placeholder:'Type The Animal Breed',
    value:o.breed
 })}
 ${FormControlTextarea({
-   namespace:"animal-edit",
+   namespace:namespace,
    name:'description',
    displayname:'Description',
-   size:'text',
+   type:'text',
    placeholder:'Type The Animal Description',
    value:o.description
 })}
 `
+
+
+
+const makeUserProfileUpdateForm = (o,namespace="user-edit") => `
+${FormControlInput({
+   namespace:namespace,
+   name:'name',
+   displayname:'Name',
+   type:'text',
+   placeholder:'Type Your Name',
+   value:o.name
+})}
+${FormControlInput({
+   namespace:namespace,
+   name:'username',
+   displayname:'Username',
+   type:'text',
+   placeholder:'Type Your Username',
+   value:o.username
+})}
+${FormControlInput({
+   namespace:namespace,
+   name:'email',
+   displayname:'Email',
+   type:'text',
+   placeholder:'Type Your Email',
+   value:o.email
+})}
+`
+
+const makeUserPasswordUpdateForm = o => `
+${FormControlInput({
+   namespace:"user-edit",
+   name:'old-password',
+   displayname:'Old Password',
+   type:'password',
+   placeholder:'Type Your Old Password',
+   value:''
+})}
+${FormControlInput({
+   namespace:"user-edit",
+   name:'new-password',
+   displayname:'New Password',
+   type:'password',
+   placeholder:'Type Your New Password',
+   value:''
+})}
+${FormControlInput({
+   namespace:"user-edit",
+   name:'confirm-password',
+   displayname:'Confirm Password',
+   type:'password',
+   placeholder:'Type Your New Password Again',
+   value:''
+})}
+`
+
+
+
+
+
+const makeAnimalListSet = (animals,missing_text="") => {
+   animal_template = animals.length?
+      makeAnimalList(animals):
+      `<div class="animallist-item"><div class="animallist-description">${missing_text}</div></div>`
+
+   $("#list-page .animallist").html(animal_template);
+}
+
+const capitalize = s => s[0].toUpperCase()+s.substr(1);
+
+const filterList = (animals,size) => {
+   let a = [...(new Set(animals.map(o=>o[size])))];
+   return templater(o=>o?`<li class="filter" data-field="${size}" data-value="${o}">${capitalize(o)}</li>`:'')(a);
+}
+
+const makeFilterList = (animals) => {
+   return `
+   <li class="filter" data-field="size" data-value="">All</li>
+   |
+   ${filterList(animals,'size')}
+   |
+   ${filterList(animals,'breed')}
+   `
+}

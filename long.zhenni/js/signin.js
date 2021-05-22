@@ -13,7 +13,6 @@ const checkSigninForm = async () => {
       params:[username,password]
    });
 
-   console.log(user)
    if(user.result.length > 0) {
       console.log("logged in")
       sessionStorage.userId = user.result[0].id;
@@ -29,7 +28,7 @@ const checkSigninForm = async () => {
 
 
 const checkUserId = () => {
-   let p = ["#signin-page","#signup-page",""];
+   let p = ["#signin-page","#signup-page","#signup-second-page",""];
 
    if(sessionStorage.userId === undefined) {
       // not logged in
@@ -41,3 +40,4 @@ const checkUserId = () => {
          $.mobile.navigate("#recent-page");
    }
 }
+
