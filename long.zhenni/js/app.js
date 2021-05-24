@@ -1,4 +1,4 @@
-
+let core_pages = ["recent-page","list-page","user-profile-page"];
 
 
 // Document Ready
@@ -13,6 +13,12 @@ $(()=>{
       console.log(ui.toPage[0].id)
 
       $(".active").removeClass("active")
+
+       if(core_pages.includes(ui.toPage[0].id)) {
+         $(`[data-page-link='${ui.toPage[0].id}']`)
+            .addClass("active");
+      }
+
 
       // PAGE ROUTING
       switch(ui.toPage[0].id) {
@@ -61,6 +67,26 @@ $(()=>{
          $(".image-uploader").css({
             "background-image":`url(uploads/${d.result})`
          });
+      })
+   })
+
+   .on("change","#animal-update-image-input",function(e){
+      checkUpload(this.files[0])
+      .then(d=>{
+         console.log(d)
+         if(d.error) throw "Uploading failed: "+d.error;
+
+         let image_location = 'uploads/'+d.result;
+         query({
+            type:'update_animal_image',
+            params:[image_location,sessionStorage.animalId]
+         }).then(d=>{
+            if(d.error) {
+               throw d.error;
+            }
+            $("#animal-profile-page .animal-top")
+               .css({"background-image":`url(${image_location})`})
+         })
       })
    })
 
@@ -121,7 +147,6 @@ $(()=>{
    .on("click",".filter",function(e){
       checkListFilter($(this).data());
    })
-
 
 
 

@@ -127,20 +127,6 @@ a:hover {
    box-shadow:0 0 5px rgba(0,0,0,0.2);
    position:relative;
    overflow:hidden;
-    /*display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: var(--header-height);
-    line-height: var(--header-height);
-    border-width: 0;
-    background-color: var(--color-white);
-    box-shadow: 0 0 5px rgb(0 0 0 / 20%);
-    overflow: hidden;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    overflow: hidden;
-*/
 }
 
 
@@ -173,8 +159,18 @@ a:hover {
    box-shadow:0 0 5px rgba(0,0,0,0.2);
    position:relative;
    overflow:hidden;
-    
+}
 
+.ui-header .ui-title {
+   position:absolute;
+   top:0;
+   left:0;
+   width:100%;
+   height:100%;
+   text-align:center;
+   margin:0;
+   font-size:1rem;
+   padding:0;
 }
 
 
@@ -230,9 +226,17 @@ a:hover {
 }
 .ui-mobile .form-label {
     margin: 1em 0;
-    font-size: 0.7em;
+    font-size: 0.8em;
+    font-weight: bold;
     color: var(--color-main-dark);
 }
+
+.form-input,
+.form-button,
+.form-select select {
+    webkit-appearance:none;
+}
+
 .form-input {
     width: 100%;
     display: inline-block;
@@ -257,6 +261,78 @@ a:hover {
     cursor:pointer;
 
 }
+
+
+
+/*.form-secondary-button {
+    margin: 0;
+    padding: 0.5em 1em;
+    border-radius: 0.3em;
+    border-width:0;
+    border: 2px solid black;
+    border-color: var(--color-main-light);
+    outline: 0;
+    width: 100%;
+    display: inline-block;
+    font:inherit;
+    text-align:center;
+    cursor:pointer;
+
+}*/
+
+
+.form-select {
+   position: relative;
+}
+.form-select>select {
+   display:inline-block;
+   width:100%;
+  
+   border: 2px solid black;
+    border-color: var(--color-main-light);
+
+   padding:0.5em 2em 0.5em 1em;
+   border-radius:0.3em;
+   font:inherit;
+   outline:0;
+   position:relative;
+   overflow:hidden;
+   -webkit-appearance:none;
+}
+.form-select::after {
+   position:absolute;
+   top:50%;
+   right:0.5em;
+   content:'▼';
+   font-family:arial;
+   font-size:0.9em;
+   color:var(--color-main-dark);
+   pointer-events:none;
+   transform: translateY(-50%);
+}
+.hotdog {
+    display: inline-flex;
+    width: 100%;
+    border-width: 0;
+    background-color: var(--color-neutral-light);
+    border-radius: 2em;
+}
+.hotdog>input {
+    flex: 1;
+    background-color: transparent;
+    border-width: 0;
+    line-height: 2.5;
+    padding: 0 1em;
+    outline: 0;
+    font-size: inherit;
+}
+.hotdog.hovering {
+    background-color:var(--color-white);
+    box-shadow:1px 0 5px rgba(0,0,0,0.2)
+}
+
+
+
 /*.form-button:hover {
    text-decoration:none;
    background-color:var(--color-neutral-medium);
@@ -383,11 +459,18 @@ a:hover {
 /* ICONS */
 .icon svg,
 .icon img {
-  width:1em;
+  width:1.5em;
   height:1em;
   vertical-align: text-bottom;
 }
 
+
+.baricon svg,
+.baricon img {
+  width:1.5em;
+  height:1em;
+  vertical-align: text-bottom;
+}
 
 .title-icons .title,
 .title-icons .icon {
@@ -433,12 +516,12 @@ a:hover {
 .ui-mobile a img{
     border-width: 1em;
     height: 2em;
-    border-radius: 0.7em;
+    /*border-radius: 0.7em;*/
   }
 
-.ui-link a img {
+/*.ui-link a img {
   height: 2em;
-}
+}*/
 
 
 
@@ -534,7 +617,7 @@ ul  {
 
 border: solid var(--color-main-light);
 border-radius: 5em;
-padding:0.5em;
+
 }
 
 
@@ -666,6 +749,7 @@ padding:0.5em;
   height:40vh;
   background-position:center;
   background-size:cover;
+  position: relative;
 }
 .animal-bottom {
   flex:1 1 100%;
@@ -711,20 +795,31 @@ padding:0.5em;
   margin: 1em;
   border-radius: 1em;
   overflow: hidden;
-  box-shadow: 0 5px 10px rgb(0 0 0 / 20%);
+  /*box-shadow: 0 5px 10px rgb(0 0 0 / 20%);*/
+  border: solid var(--color-main-light);
+  border-width: thin;
 }
 .animallist-image img{
   width:100px;
   height:100px;
   vertical-align: middle;
+  object-fit: cover;
 }
 .animallist-description {
   padding:1em;
+  margin: auto;
 }
 .animallist-name {
-  font-size:1.3em;
+  font-size: 1em;
+  font-weight: bold;
+  color: var(--color-main-dark);
 }
 
+
+.animallist-info {
+  font-size: 0.8em;
+  padding-top: 0.8em;
+}
 
 .animal-image-thumb img {
   width:6em;
@@ -738,7 +833,17 @@ padding:0.5em;
   pointer-events:none;
 }
 
+.animal-info-title {
+    margin: 0.3em 0;
+    font-size: 0.8em;
+    font-weight: bold;
+    color: var(--color-main-dark);
 
+}
+
+.animal-info-detail {
+  font-size: 1em;
+}
 
 
 
@@ -780,31 +885,30 @@ padding:0.5em;
 .animal-info {
    background-color:var(--color-neutral-light);
    padding:1em;
-   margin: 1em;
-   position:relative;
-   overflow:hidden;
    text-align: center;
-   font-size: 1.2em;
-
 }
 
-.animal-name {
-  padding: 0.5em 0;
+
+.animal-edit-info {
+     padding:1em;
+   text-align: center;
 }
 
-.animal-size {
-  padding: 0.5em 0;
+
+.animal-info-list {
+  padding: 0.5em;
 }
 
-.animal-breed {
-  padding: 0.5em 0;
-}
+.location-add-info {
+ padding:1em;
+   text-align: center;
+ }
 
 
 .circle-button {
   display:inline-block;
   vertical-align:middle;
-  background-color:white;
+  background-color:var(--color-main-medium);
   box-shadow:2px 2px 5px rgba(0,0,0,0.2);
   border-radius:50%;
   height:var(--header-height);
@@ -812,9 +916,15 @@ padding:0.5em;
   width:var(--header-height);
   text-align:center;
   font-size:2em;
+  color: white;
 }
 
 
+
+
+.animal-thumb-list {
+  padding: 0;
+}
 
 
 
@@ -825,7 +935,8 @@ padding:0.5em;
     overflow: hidden;
     height: 0;
     padding-bottom: 100%;
-    background-color: var(--color-neutral-light);
+    border-bottom: 2px solid var(--color-neutral-dark);
+    /*background-color: var(--color-neutral-light);*/
 }
 .user-profile-image>img {
     width: 100%;
@@ -835,10 +946,23 @@ padding:0.5em;
     left: 0;
     top: 0;
     object-fit: cover;
-    padding: 2em;
+    padding: 3em;
 }
 
 
+.user-profile-description {margin-top: 2em;}
+
+
+.user-profile-name {
+  font-size: 1.2em;
+    font-weight: bold;
+    color: var(--color-main-dark);
+    padding: 0.5em;
+}
+}
+
+
+/*IMAGE UPLOADER*/
 
 .image-uploader.full {
   position:absolute;
@@ -856,12 +980,23 @@ padding:0.5em;
 
 
 
+
 .filter-set {
   display: flex;
   overflow:auto;
   overflow-x: scroll;
+  margin-left: 0.5em;
+  align-items: center;
 }
 .filter {
-  font-weight:bold;
-  padding:0 0.5em;
+    font-weight: bold;
+    padding: 0.5em 1em;
+    color: var(--color-main-dark);
+    border: 1px solid #0000008c;
+    border-radius: 10em;
+    /* height: 40px; */
+    align-items: center;
+    font-size: 0.8em;
+    justify-content: center;
+    margin: 0 0.4em;
 }

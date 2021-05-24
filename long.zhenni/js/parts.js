@@ -4,7 +4,7 @@ const makeAnimalList = templater(o=>`
    <div class="flex-none animallist-image"><img src="${o.img}" alt=""></div>
    <div class="animallist-description flex-stretch">
       <div class="animallist-name">${o.name}</div>
-      <div class="animallist-info">${o.size}, ${o.breed}</div>
+      <div class="animallist-info">${o.breed}, ${o.size}</div>
    </div>
    
 </div>
@@ -16,7 +16,7 @@ const makeUserProfile = o => `
    <img src="${o.img}" alt="">
 
    <div class="floater bottom right">
-      <a href="#user-upload-page" class="icon"><img src="img/icon/pencil.svg" alt=""></a>
+      <a href="#user-upload-page" class="icon"><img src="img/icon/photo2.svg" alt=""></a>
    </div>
 </div>
 <div class="user-profile-description">
@@ -25,15 +25,27 @@ const makeUserProfile = o => `
 </div>
 `;
 
+
 const makeAnimalInfo = o => `
-<div class="animal-name">${o.name}</div>
-<div class="animal-size">${o.size}</div>
-<div class="animal-breed">${o.breed}</div>
-<div class="animal-description"> 
-      <h2>Description</h2>
-      <div>${o.description}</div>
-      </div>
-<button class="form-button animal-delete icon" data-id="${o.id}"><img src="img/icon/delete.svg" alt=""></button>
+<div class="overscroll">
+   <div class="animal-info-list">
+      <div class="animal-info-title">Name</div>
+      <div class="animal-info-detail">${o.name}</div>
+   </div>
+   <div class="animal-info-list">
+      <div class="animal-info-title">Breed</div>
+      <div class="animal-info-detail">${o.breed}</div>
+   </div>
+   <div class="animal-info-list">
+      <div class="animal-info-title">Size</div>
+      <div class="animal-info-detail">${o.size}</div>
+   </div>
+   <div class="animal-info-list"> 
+      <div class="animal-info-title">Description</div>
+      <div class="animal-info-detail" style="text-align: left;">${o.description}</div>
+   </div>
+   <button class="form-button animal-delete icon" data-id="${o.id}"><img src="img/icon/delete.svg" alt=""></button>
+</div>
 `;
 
 
@@ -41,13 +53,22 @@ const makeAnimalInfo = o => `
 
 const makeAnimalPopup = o => `
 <div class="display-flex animal-jump" data-id="${o.animal_id?o.animal_id:o.id}">
-   <div class="flex-none animal-image-thumb">
+   <div class="flex-none animal-image-thumb margin-auto">
       <img src="${o.img}">
    </div>
    <div class="flex-none" style="padding:1em">
-      <div class="animal-name">${o.name}</div>
-      <div class="animal-size">${o.size}</div>
-      <div class="animal-breed">${o.breed}</div>
+<div class="animal-thumb-list">
+      <div class="animal-info-title">Name</div>
+      <div class="animal-info-detail">${o.name}</div>
+   </div>
+   <div class="animal-thumb-list">
+      <div class="animal-info-title">Breed</div>
+      <div class="animal-info-detail">${o.breed}</div>
+   </div>
+   <div class="animal-thumb-list">
+      <div class="animal-info-title">Size</div>
+      <div class="animal-info-detail">${o.size}</div>
+   </div>
    </div>
 </div>
 `;
@@ -97,19 +118,19 @@ ${FormControlInput({
 })}
 ${FormControlInput({
    namespace:namespace,
-   name:'size',
-   displayname:'Size',
-   type:'text',
-   placeholder:'Type The Animal Size',
-   value:o.size
-})}
-${FormControlInput({
-   namespace:namespace,
    name:'breed',
    displayname:'Breed',
    type:'text',
    placeholder:'Type The Animal Breed',
    value:o.breed
+})}
+${FormControlInput({
+   namespace:namespace,
+   name:'size',
+   displayname:'Size',
+   type:'text',
+   placeholder:'Type The Animal Size',
+   value:o.size
 })}
 ${FormControlTextarea({
    namespace:namespace,
@@ -199,8 +220,6 @@ const filterList = (animals,size) => {
 const makeFilterList = (animals) => {
    return `
    <li class="filter" data-field="size" data-value="">All</li>
-   |
-   ${filterList(animals,'size')}
    |
    ${filterList(animals,'breed')}
    `

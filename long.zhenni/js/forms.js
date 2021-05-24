@@ -79,15 +79,17 @@ const checkUserPasswordForm = () => {
 
 
 
+
+
 const checkAnimalAddForm = () => {
    let name = $("#animal-add-name").val();
-   let size = $("#animal-add-size").val();
    let breed = $("#animal-add-breed").val();
+   let size = $("#animal-add-size").val();
    let description = $("#animal-add-description").val();
 
    query({
       type:"insert_animal",
-      params:[sessionStorage.userId,name,size,breed,description]
+      params:[sessionStorage.userId,name,breed,size,description]
    }).then(d=>{
       if(d.error) {
          throw d.error;
@@ -100,13 +102,13 @@ const checkAnimalAddForm = () => {
 }
 const checkAnimalEditForm = () => {
    let name = $("#animal-edit-name").val();
-   let size = $("#animal-edit-size").val();
    let breed = $("#animal-edit-breed").val();
+   let size = $("#animal-edit-size").val();
    let description = $("#animal-edit-description").val();
 
    query({
       type:"update_animal",
-      params:[name,size,breed,description,sessionStorage.animalId]
+      params:[name,breed,size,description,sessionStorage.animalId]
    }).then(d=>{
       if(d.error) {
          throw d.error;

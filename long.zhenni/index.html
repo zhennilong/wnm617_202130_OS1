@@ -6,6 +6,10 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Birds Tracker</title>
 
+   <link rel="apple-touch-icon" href="logo-blue-02.png">
+   <link rel="icon" href="logo-blue-02.png">
+
+
    <link rel="stylesheet" href="lib/css/jquery.mobile.structure-1.4.5.min.css">
    <link rel="stylesheet" href="css/app.css">
    <link rel="stylesheet" href="css/gridsystem.css">
@@ -54,8 +58,8 @@
                </div>
                
             </form>
-            <div class="text-signin-page">
-                  Don't have an account? <a href="#signup-page"><strong>SIGN UP</strong></a>
+            <div class="text-signin-page" >
+                  <p> Don't have an account? <a href="#signup-page"><strong>SIGN UP</strong></a> </p>
             </div>
          </div>
       </div>
@@ -63,7 +67,9 @@
 
     <section data-role="page" id="signup-page">
       <div data-role="main" class="display-flex flex-vertical">
-         <div class="flex-stretch"></div>
+         <div class="logo-signin">
+               <img src="img/logo-blue-02.png">
+         </div>
          <div class="flex-none">
             <form class="form" id="signup-form" data-ajax="false" style="padding:1em">
                <div class="form-control">
@@ -81,8 +87,8 @@
                <div class="form-control">
                   <input type="submit" class="form-button" value="Sign Up" data-role="none">
                </div>
-               <div class="form-control" style="text-align:center">
-                  Already have an account? <a href="#signin-page">Sign In</a>
+               <div class="form-control text-signin-page" style="text-align:center">
+                 <p> Already have an account? <a href="#signin-page"><strong>Sign In</strong></a></p>
                </div>
             </form>
          </div>
@@ -163,7 +169,7 @@
          <!-- </div> -->
       </div>
          <div class="floater bottom right" style="padding:1em">
-            <a href="#choose-animal-page" class="circle-button">&plus;</a>
+            <a href="#choose-animal-page" class="circle-button js-add-from-recent">&plus;</a>
          </div>
 
           <div class="modal" id="recent-drawer">
@@ -437,11 +443,11 @@
          <div class="overscroll">
             <form id="user-upload-form" data-ajax="false" style="padding:1em">
                <input type="hidden" class="upload-image-input" id="user-upload-image">
-               <label class="image-uploader full">
+               <label class="image-uploader full" style="position: absolute;top:0;left:0;width:100%;height:100%;background-position:center;background-size:contain;background-repeat:no-repeat;">
                   <input type="file" data-role="none" id="user-upload-input">
                </label>
                <label for="user-upload-input" class="floater bottom left">
-                  <img src="img/icon/picture.svg" alt="" class="icon">
+                  <img src="img/icon/photo2.svg" alt="" class="icon">
                </label>
             </form>
          </div>
@@ -460,18 +466,24 @@
    <section data-role="page" id="animal-profile-page">
       <div data-role="main" class="display-flex flex-vertical">
          <div class="animal-top">
-            <div class="floater top left header no-touch"  style=" background-color:white;">
+            <div class="floater top left header no-touch"  >
                <ul>
                   <li class="flex-none do-touch"><a href="#" data-rel="back">Back</a></li>
-                  <li class="flex-stretch" style="text-align: center; font-size: 1rem; color: var(--color-main-dark);font-weight: bold;">Animal Profile</li>
+                  <li class="flex-stretch" ></li>
                   <li class="flex-none do-touch"><a href="#animal-edit-page">Edit</a></li>
                </ul>
+            </div>
+            <div class="floater bottom right" style="font-size:1.5em">
+               <form class="icon" data-ajax="false" id="animal-update-image-form">
+                  <input type="file" id="animal-update-image-input" class="hidden" data-role="none">
+                  <label for="animal-update-image-input" style="margin:0; padding-bottom: 0.5em;"><img src="img/icon/photo.svg" style="height: 1.5em;" alt=""></label>
+               </form>
             </div>
          </div>
          <div class="header animal-nav">
             <ul>
-               <li class="flex-stretch"><a href="#">map</a></li>
-               <li class="flex-stretch"><a href="#">info</a></li>
+               <li class="flex-stretch"><a href="#">Map</a></li>
+               <li class="flex-stretch"><a href="#">Info</a></li>
             </ul>
          </div>
          <div class="animal-bottom">
@@ -553,7 +565,10 @@
 
       <div data-role="main" class="display-flex flex-vertical">
          <div class="overscroll">
-            <form id="animal-edit-form" data-ajax="false" style="padding:1em"></form>
+            <div class="animal-edit-info">
+               <form id="animal-edit-form" data-ajax="false" style="padding:1em"></form>
+               <a href="#" class="form-button animal-edit-submit icon">Save</a>
+            </div>
          </div>
       </div>
 
@@ -631,11 +646,12 @@
       </header>
       <div data-role="main" class="display-flex flex-vertical">
          <div class="overscroll">
-            <form style="padding:1em">
+            <form style="padding:3em 1em">
                <div>
                   <a href="#animal-add-page" class="form-button">Create New Animal</a>
                </div>
-               <p style="text-align:center">Or Choose One Below</p>
+               <p style="text-align:center">Or</p>
+               <p class="form-secondary-button" style="text-align:center">Choose One Below</p>
                <div class="animal-choices">
                   <div class='form-select'>
                      <select id="location-choose-animal" data-role="none"></select>
@@ -668,17 +684,19 @@
          <ul>
             <li><a href="#" data-rel="back">Cancel</a></li>
             <li class="flex-stretch"></li>
-            <li><a href="#" class="location-add-submit">Save</a></li>
          </ul>
       </header>
       <div data-role="main" class="display-flex flex-vertical">
          <div class="overscroll">
-            <form style="padding:1em">
-               <input type="hidden" id="location-redirect">
-               <div class="form-control">
-                  <textarea name="location-description" id="location-description" rows="10" class="form-input" data-role="none"></textarea>
-               </div>
-            </form>
+            <div class="location-add-info">
+               <form style="padding:1em">
+                  <input type="hidden" id="location-redirect">
+                  <div class="form-control">
+                     <textarea name="location-description" id="location-description" rows="10" class="form-input" data-role="none"></textarea>
+                  </div>
+               </form>
+               <a href="#" class="form-button icon location-add-submit">Save</a>
+            </div>
          </div>
       </div>
    </section>
@@ -686,15 +704,19 @@
 
 
    <script type="text/template" id="footer-template">
-      <ul class="nav-bar-icon">
+      <ul class="title-icons">
          <li><a href="#recent-page">
-            <img class="icon" src="img/icon/map.svg">
+           
+               <img class="baricon" src="img/icon/map.svg" style="margin: 0.5em 0;">
+           
          </a></li>
          <li><a href="#list-page">
-             <img class="icon" src="img/icon/list.svg">
+            
+             <img class="baricon" src="img/icon/list.svg" style="margin: 0.5em 0;">
+             
          </a></li>
          <li><a href="#user-profile-page">
-          <img class="icon" src="img/icon/user.svg">
+          <img class="baricon" src="img/icon/user.svg" style="margin: 0.5em 0;">
        </a></li>
       </ul>
    </script>
