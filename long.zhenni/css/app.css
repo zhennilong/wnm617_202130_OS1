@@ -86,6 +86,8 @@ a:hover {
   width:100%;
 }
 
+.no-touch { pointer-events:none; }
+.do-touch { pointer-events:all; }
 
 
 
