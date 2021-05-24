@@ -28,7 +28,7 @@ const makeUserProfile = o => `
 
 
 const makeAnimalInfo = o => `
-<div class="overscroll">
+<div class="overscroll" style="padding-top: 1em;">
    <div class="animal-info-list">
       <div class="animal-info-title">Name</div>
       <div class="animal-info-detail">${o.name}</div>
@@ -45,7 +45,24 @@ const makeAnimalInfo = o => `
       <div class="animal-info-title">Description</div>
       <div class="animal-info-detail" style="text-align: left;">${o.description}</div>
    </div>
-   <button class="form-button animal-delete icon" data-id="${o.id}" style="margin: 2em 0;"><img src="img/icon/delete.svg" alt=""></button>
+   <div class="floater top right" >
+               <a href="#" class="icon " data-activate="#animal-delete-modal"><img src="img/icon/ellipsis-bk.svg" alt="" style="width: 3em;"></a>
+   </div>
+         <div class="modal" id="animal-delete-modal">
+            <div class="modal-drawer bottom">
+               <div class="modal-body">
+                  <div class="overscroll" >
+                     <ul>
+                        <li class="flex-none animal-delete icon add-padding" data-id="${o.id}">Delete</li>
+                        <li class="flex-none do-touch add-padding"><a href="#animal-edit-page">Edit</a></li>
+                        <li class="flex-none add-padding"><a href="#"data-deactivate="#animal-delete-modal">Cancel</a></li>
+                     </ul>
+                  </div>
+               </div>
+              
+            </div>
+         </div>
+   
 </div>
 `;
 

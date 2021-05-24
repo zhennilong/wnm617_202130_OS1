@@ -1005,3 +1005,8 @@ border-radius: 5em;
     justify-content: center;
     margin: 0 0.4em;
 }
+
+
+.add-padding {
+  padding: 0.5em;
+}
