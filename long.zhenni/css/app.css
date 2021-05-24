@@ -524,6 +524,12 @@ a:hover {
     /*border-radius: 0.7em;*/
   }
 
+
+..circle-button .more {
+    border-width: 1em;
+    /*border-radius: 0.7em;*/
+  }
+
 /*.ui-link a img {
   height: 2em;
 }*/

@@ -45,8 +45,8 @@ const makeAnimalInfo = o => `
       <div class="animal-info-title">Description</div>
       <div class="animal-info-detail" style="text-align: left;">${o.description}</div>
    </div>
-   <div class="floater top right" >
-               <a href="#" class="icon " data-activate="#animal-delete-modal"><img src="img/icon/ellipsis-bk.svg" alt="" style="width: 3em;"></a>
+   <div class="floater bottom right" >
+               <a href="#" class="icon " data-activate="#animal-delete-modal"><img src="img/icon/ellipsis-wbk.svg" alt="" style="width: 3em;"></a>
    </div>
          <div class="modal" id="animal-delete-modal">
             <div class="modal-drawer bottom">
