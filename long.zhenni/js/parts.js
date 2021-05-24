@@ -222,5 +222,7 @@ const makeFilterList = (animals) => {
    <li class="filter" data-field="size" data-value="">All</li>
    |
    ${filterList(animals,'breed')}
+   |
+   ${filterList(animals,'size')}
    `
 }
