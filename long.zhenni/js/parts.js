@@ -26,6 +26,7 @@ const makeUserProfile = o => `
 `;
 
 
+
 const makeAnimalInfo = o => `
 <div class="overscroll">
    <div class="animal-info-list">
@@ -44,7 +45,7 @@ const makeAnimalInfo = o => `
       <div class="animal-info-title">Description</div>
       <div class="animal-info-detail" style="text-align: left;">${o.description}</div>
    </div>
-   <button class="form-button animal-delete icon" data-id="${o.id}"><img src="img/icon/delete.svg" alt=""></button>
+   <button class="form-button animal-delete icon" data-id="${o.id}" style="margin: 2em 0;"><img src="img/icon/delete.svg" alt=""></button>
 </div>
 `;
 
